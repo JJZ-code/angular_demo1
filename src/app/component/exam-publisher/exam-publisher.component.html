@@ -1,0 +1,60 @@
+
+<div class="main">
+    <div class="main_title">
+        <span>Total Score {{order[0].totalScore}}</span> 
+        <span>Total Number of Question {{order[0].totalNumber}} </span>
+        <span>Passing Grade Persentage <input type="text" [(ngModel)]="order[0].passingGrade">%</span>
+        <button class="btn" >Preview</button>
+
+    </div>
+    <div class="main_center">
+        <div> &nbsp;</div>
+        <div class="main_btn">
+            <button class="btn"> Add</button>
+            <button class="btn">Delete</button>
+        </div>
+        <div class="main_date">
+            <div class="date_title">
+                <span> 
+                    <input type="checkbox" name="" id="">
+                    Order Nember  
+                </span>
+                <span>Title</span>
+                <span>Score</span>
+                <span>Option</span>
+                <span>Operation</span>
+                
+            </div>
+        
+            <div class="date_item" *ngFor="let item of order[0].trainingQuestions ">
+               <span><input type="checkbox" name="" id="">{{item.trainingId}}</span>
+               <span>{{item.title}}</span>
+               <span>{{item.score}}</span>
+               <!-- 单选 -->
+                <span *ngIf="item.questionType==0">
+                <ul >
+                    <li *ngFor="let opt of item.trainingQuestionOptions" >
+                        <input type="radio" [name]="opt.qiestionId" >
+                        {{opt.itemContent}}
+                    </li>
+                </ul>
+                </span>
+                <!-- 多选 -->
+                <span *ngIf="item.questionType==1"><ul >
+                <li *ngFor="let opt of item.trainingQuestionOptions" >
+                    <input type="checkbox" [name]="opt.qiestionId"  >
+                    {{opt.itemContent}}</li>
+               </ul>
+               
+            </span>
+               <span class="date_btn">
+                <button class="btn" > Edit</button>
+                <button class="btn"  >Delete</button>
+               </span>
+                    
+                
+            </div>
+        </div>
+    </div>
+
+</div>
