@@ -10,7 +10,7 @@
     <div class="main_center">
         <div> &nbsp;</div>
         <div class="main_btn">
-            <button class="btn"> Add</button>
+            <button class="btn" (click)="addQuestion()"> Add</button>
             <button class="btn">Delete</button>
         </div>
         <div class="main_date">
@@ -28,22 +28,22 @@
         
             <div class="date_item" *ngFor="let item of order[0].trainingQuestions ">
                <span><input type="checkbox" name="" id="">{{item.trainingId}}</span>
-               <span>{{item.title}}</span>
+               <span >{{item.title}}</span>
                <span>{{item.score}}</span>
                <!-- 单选 -->
                 <span *ngIf="item.questionType==0">
                 <ul >
-                    <li *ngFor="let opt of item.trainingQuestionOptions" >
-                        <input type="radio" [name]="opt.qiestionId" >
+                    <li *ngFor="let opt of item.trainingQuestionOptions" [title]="opt.itemContent">
+                        <input type="radio" [name]="opt.qiestionId" disabled="disabled" [checked]="opt.optionOrder">
                         {{opt.itemContent}}
                     </li>
                 </ul>
                 </span>
                 <!-- 多选 -->
                 <span *ngIf="item.questionType==1"><ul >
-                <li *ngFor="let opt of item.trainingQuestionOptions" >
-                    <input type="checkbox" [name]="opt.qiestionId"  >
-                    {{opt.itemContent}}</li>
+                <li *ngFor="let opt of item.trainingQuestionOptions" [title]="opt.itemContent">
+                    <input type="checkbox" [name]="opt.qiestionId"  disabled="disabled"  [checked]="opt.optionOrder">{{opt.itemContent}}
+                    </li>
                </ul>
                
             </span>
@@ -55,6 +55,13 @@
                 
             </div>
         </div>
+        
     </div>
-
+    <!-- add 弹窗 -->
+    <div class="masklayer" *ngIf="addQuestionShow">
+        <div class="question-dialog">
+            <div><button (click)="closeAddQuetion()">关闭</button></div>
+            
+        </div>
+    </div>
 </div>

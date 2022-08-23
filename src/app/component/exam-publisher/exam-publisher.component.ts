@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exam-publisher.component.scss']
 })
 export class ExamPublisherComponent implements OnInit {
+  addQuestionShow:boolean = false;
   public order:any[]=[
     {totalScore: 6697,
       totalNumber:2,
@@ -24,18 +25,18 @@ export class ExamPublisherComponent implements OnInit {
           {
             id: 90898108,
             qiestionId: 90897200,
-            itemContent: 'aaa',
+            itemContent: 'aaaaaaaaaaaaaaaaaaaaaa',
             rightOrWrong: null,
             picture: null,
-            optionOrder: 0,
+            optionOrder: 1,
           },
           {
             id: 90898109,
             qiestionId: 90897200,
-            itemContent: 'bbb',
+            itemContent: 'bbaaaaaaaaaaaaaaaaaaaaaaaaaab',
             rightOrWrong: null,
             picture: null,
-            optionOrder: 1,
+            optionOrder: 0,
           }
             
           ]
@@ -53,7 +54,7 @@ export class ExamPublisherComponent implements OnInit {
           {
             id: 90898108,
             qiestionId: 90897201,
-            itemContent: 'aaa',
+            itemContent: 'aaaaaaaaaaaaaaaa',
             rightOrWrong: null,
             picture: null,
             optionOrder: 0,
@@ -61,7 +62,7 @@ export class ExamPublisherComponent implements OnInit {
           {
             id: 90898109,
             qiestionId: 90897201,
-            itemContent: 'bbb',
+            itemContent: 'bbbbbaaaaaaaaaaaaaa',
             rightOrWrong: null,
             picture: null,
             optionOrder: 1,
@@ -85,7 +86,7 @@ export class ExamPublisherComponent implements OnInit {
             itemContent: 'aaa',
             rightOrWrong: null,
             picture: null,
-            optionOrder: 0,
+            optionOrder: 1,
           },
           {
             id: 90898109,
@@ -101,12 +102,19 @@ export class ExamPublisherComponent implements OnInit {
 			
      ]
     },
-   
+    
       
   ]
   constructor() { }
 
   ngOnInit(): void {
+  };
+  addQuestion(){
+    this.addQuestionShow = true;
+  
+  };
+  closeAddQuetion(){
+    this.addQuestionShow = false;
   }
 
 }
